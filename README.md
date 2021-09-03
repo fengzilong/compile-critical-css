@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/compile-critical-css.svg)](https://www.npmjs.com/package/compile-critical-css) [![Node.js CI status](https://github.com/fengzilong/compile-critical-css/workflows/Node.js%20CI/badge.svg)](https://github.com/fengzilong/compile-critical-css/actions)
 
+Compile css to critical css function
+
 # Installation
 
 ```bash
@@ -73,7 +75,7 @@ div { color: #222 }
 }
 ```
 
-Inline this in your html file
+Inline this in your html file, enjoy it!
 
 # License
 
