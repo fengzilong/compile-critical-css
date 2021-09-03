@@ -10,6 +10,9 @@
     "prepublish": "echo 😋",
     "precommit": "lint-staged"
   },
+  "files": [
+    "lib"
+  ],
   "lint-staged": {
     "lib/**/*.js": "eslint --quiet"
   },
