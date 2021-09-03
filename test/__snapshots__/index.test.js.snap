@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`only class 1`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 2`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass::before { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 3`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass:hover { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 4`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\",\\"klass2\\"] ) ? \\".klass, .klass2 { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 5`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\",\\"klass2\\"] ) ? \\".klass > .klass2 { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 6`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\",\\"klass2\\"] ) ? \\".klass + .klass2 { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 7`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\",\\"klass2\\"] ) ? \\".klass ~ .klass2 { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`only class 8`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass::before { color: #111; }\\" : \\"\\" }\`
+}"
+`;
+
+exports[`preserve id 1`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`#id { color: #111; }\`
+}"
+`;
+
+exports[`preserve id 2`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass #id { color: #111; }\`
+}"
+`;
+
+exports[`preserve id 3`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass, #id { color: #111; }\`
+}"
+`;
+
+exports[`preserve tag 1`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`tag { color: #111; }\`
+}"
+`;
+
+exports[`preserve tag 2`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass tag { color: #111; }\`
+}"
+`;
+
+exports[`preserve tag 3`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass, tag { color: #111; }\`
+}"
+`;
+
+exports[`preserve universal 1`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`* { color: #111; }\`
+}"
+`;
+
+exports[`preserve universal 2`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`html * { color: #111; }\`
+}"
+`;
+
+exports[`preserve universal 3`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass * { color: #111; }\`
+}"
+`;
+
+exports[`preserve universal 4`] = `
+"function getCriticalCSS( classlist = [] ) {
+  const $in = ( classlist, selectorClasslist ) => {
+    return classlist.some( klass => selectorClasslist.includes( klass ) )
+  }
+  return \`.klass, * { color: #111; }\`
+}"
+`;
