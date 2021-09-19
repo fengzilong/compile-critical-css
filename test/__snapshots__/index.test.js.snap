@@ -14,7 +14,7 @@ exports[`only class 2`] = `
   const $in = ( classlist, selectorClasslist ) => {
     return classlist.some( klass => selectorClasslist.includes( klass ) )
   }
-  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass::before { color: #111; }\\" : \\"\\" }\`
+  return \`.klass::before { color: #111; }\`
 }"
 `;
 
@@ -23,7 +23,7 @@ exports[`only class 3`] = `
   const $in = ( classlist, selectorClasslist ) => {
     return classlist.some( klass => selectorClasslist.includes( klass ) )
   }
-  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass:hover { color: #111; }\\" : \\"\\" }\`
+  return \`.klass:hover { color: #111; }\`
 }"
 `;
 
@@ -68,8 +68,35 @@ exports[`only class 8`] = `
   const $in = ( classlist, selectorClasslist ) => {
     return classlist.some( klass => selectorClasslist.includes( klass ) )
   }
-  return \`\${ $in( classlist, [\\"klass\\"] ) ? \\".klass::before { color: #111; }\\" : \\"\\" }\`
+  return \`.klass::before { color: #111; }\`
 }"
+`;
+
+exports[`preserve ::pseudo 1`] = `
+"
+
+    .a::before, .b::before { color: var(--main-bg-color); }
+    .a {
+      color: #ddd;
+    }
+    .b::before { color: var(--main-bg-color); }
+    
+  "
+`;
+
+exports[`preserve css variable 1`] = `
+"
+    :root {
+      --main-bg-color: brown;
+    }
+
+    element {
+      background-color: var(--main-bg-color);
+    }
+
+    .a { color: var(--main-bg-color); }
+    
+  "
 `;
 
 exports[`preserve id 1`] = `
@@ -97,6 +124,48 @@ exports[`preserve id 3`] = `
   }
   return \`.klass, #id { color: #111; }\`
 }"
+`;
+
+exports[`preserve import 1`] = `
+"
+    @import url(\\"fineprint.css\\") print;
+
+    @supports (display: flex) {
+      @media screen and (min-width: 900px) {
+        article {
+          display: flex;
+        }
+        .a { color: #111; }
+        
+      }
+    }
+  "
+`;
+
+exports[`preserve media rule 1`] = `
+"
+    @media screen and (min-width: 900px) {
+      article {
+        padding: 1rem 3rem;
+      }
+      .a { color: #111; }
+      
+    }
+  "
+`;
+
+exports[`preserve nested at rule 1`] = `
+"
+    @supports (display: flex) {
+      @media screen and (min-width: 900px) {
+        article {
+          display: flex;
+        }
+        .a { color: #111; }
+        
+      }
+    }
+  "
 `;
 
 exports[`preserve tag 1`] = `

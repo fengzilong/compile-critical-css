@@ -32,6 +32,108 @@ test( `run compiled function`, () => {
   ] ) ).toBe( `.a { color: #111; }.b { color: #222; }` )
 } )
 
+test( `preserve media rule`, () => {
+  const fnString = compile( `
+    @media screen and (min-width: 900px) {
+      article {
+        padding: 1rem 3rem;
+      }
+      .a { color: #111; }
+      .b { color: #222; }
+    }
+  ` )
+
+  const getCritical = buildFn( fnString )
+
+  expect( getCritical( [
+    'a'
+  ] ) ).toMatchSnapshot()
+} )
+
+test( `preserve nested at rule`, () => {
+  const fnString = compile( `
+    @supports (display: flex) {
+      @media screen and (min-width: 900px) {
+        article {
+          display: flex;
+        }
+        .a { color: #111; }
+        .b { color: #222; }
+      }
+    }
+  ` )
+
+  const getCritical = buildFn( fnString )
+
+  expect( getCritical( [
+    'a'
+  ] ) ).toMatchSnapshot()
+} )
+
+test( `preserve import`, () => {
+  const fnString = compile( `
+    @import url("fineprint.css") print;
+
+    @supports (display: flex) {
+      @media screen and (min-width: 900px) {
+        article {
+          display: flex;
+        }
+        .a { color: #111; }
+        .b { color: #222; }
+      }
+    }
+  ` )
+
+  const getCritical = buildFn( fnString )
+
+  expect( getCritical( [
+    'a'
+  ] ) ).toMatchSnapshot()
+} )
+
+test( `preserve css variable`, () => {
+  const fnString = compile( `
+    :root {
+      --main-bg-color: brown;
+    }
+
+    element {
+      background-color: var(--main-bg-color);
+    }
+
+    .a { color: var(--main-bg-color); }
+    .b { color: var(--main-bg-color); }
+  ` )
+
+  const getCritical = buildFn( fnString )
+
+  expect( getCritical( [
+    'a'
+  ] ) ).toMatchSnapshot()
+} )
+
+test( `preserve ::pseudo`, () => {
+  const fnString = compile( `
+    .element {
+      background-color: var(--main-bg-color);
+    }
+
+    .a::before, .b::before { color: var(--main-bg-color); }
+    .a {
+      color: #ddd;
+    }
+    .b::before { color: var(--main-bg-color); }
+    .b { color: var(--main-bg-color); }
+  ` )
+
+  const getCritical = buildFn( fnString )
+
+  expect( getCritical( [
+    'a'
+  ] ) ).toMatchSnapshot()
+} )
+
 test( `preserve id`, () => {
   expect(
     compile( `#id { color: #111; }` )
